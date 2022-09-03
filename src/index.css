@@ -1,6 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.color-orange{
+
+.color-orange {
   color: orange;
+}
+
+@layer components {
+  .btn {
+    @apply bg-white border-none
+  }
+}
+
+
+body, #root {
+  overflow: hidden;
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+}
+
+
+/** Scrollbar **/
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+ 
+*::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+*::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
 }

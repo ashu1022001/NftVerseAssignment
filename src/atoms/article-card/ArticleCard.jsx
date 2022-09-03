@@ -8,7 +8,7 @@ function ArticleCard(props) {
       <div className="w-full h-4/5 overflow-hidden">
       <img src={props.image} className="w-full h-full object-cover" />
       </div>
-      <div className="w-full  p-2 overflow-hidden 	">
+      <div className="w-full  p-2 overflow-hidden text-slate-700	">
       <span >{props.article}</span>
       </div>
     </div>
