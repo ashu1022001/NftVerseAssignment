@@ -1,11 +1,11 @@
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import Community from "../../atoms/community/Community";
-import Explore from "../../atoms/explore/Explore";
-import Footer from "../../atoms/footer/Footer";
-import Personal from "../../atoms/personal/Personal";
-import Profile from "../../atoms/profile/Profile";
+import Community from "../../components/community/Community";
+import Explore from "../../components/explore/Explore";
+import Footer from "../../components/footer/Footer";
+import Personal from "../../components/personal/Personal";
+import Profile from "../../components/profile/Profile";
 import { useSideBar } from "../../ShowSidebarContext";
 import { faBars, faFacebookF } from "@fortawesome/free-solid-svg-icons";
 

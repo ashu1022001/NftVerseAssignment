@@ -8,7 +8,7 @@ function Header() {
   const { toggleButton, toggleSideBar } = useSideBar();
   const location = useLocation();
   return (
-    <div className="flex justify-between items-center bg-slate-200 py-3 px-3 shadow-sm sticky top-0">
+    <div className="flex justify-between items-center bg-slate-200 py-3 px-3 shadow-sm sticky z-[1] top-0">
       <div className="flex gap-2">
         {!toggleButton && (
           <button onClick={() => toggleSideBar()}>

@@ -1,4 +1,4 @@
-import ArticlesWrapper from "./atoms/articles-wrapper/ArticlesWrapper";
+import ArticlesWrapper from "./components/articles-wrapper/ArticlesWrapper";
 
 export const ROUTES = [
     {
