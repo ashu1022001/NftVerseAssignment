@@ -1,18 +1,22 @@
 export const communities = [
   {
     image: "/img/img2",
-    name: "Man Community"
+    name: "Man Community",
+    link: "/community"
   },
   {
     image: "/img/img3",
-    name: "Fun Community"
+    name: "Fun Community",
+    link: "/community"
   },
   {
     image: "/img/img4",
-    name: "Tech Community"
+    name: "Tech Community",
+    link: "/community"
   },
   {
     image: "/img/img5",
-    name: "Lead Community"
+    name: "Lead Community",
+    link: "/community"
   }
 ];

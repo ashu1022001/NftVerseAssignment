@@ -1,4 +1,4 @@
-import { faBars, faFacebookF } from "@fortawesome/free-solid-svg-icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import Community from "../../atoms/community/Community";
@@ -6,23 +6,27 @@ import Explore from "../../atoms/explore/Explore";
 import Footer from "../../atoms/footer/Footer";
 import Personal from "../../atoms/personal/Personal";
 import Profile from "../../atoms/profile/Profile";
-import { useToggle, useToggleSideBar } from "../../ShowSidebarContext";
+import { useSideBar } from "../../ShowSidebarContext";
+import { faBars, faFacebookF } from "@fortawesome/free-solid-svg-icons";
 
 function Sidebar() {
  
-  const showSideBar = useToggle();
-  const toggleSideBar = useToggleSideBar();
+ const sideBar = useSideBar();
 
   return (
-    showSideBar && (
+    sideBar.toggleButton && (
       <div
-        className={`flex justify-between  items-center flex-col rounded transition ease-in-out duration-300 h-screen bg-white`}
+        className={`flex justify-between  items-center flex-col rounded h-screen bg-white`}
       >
-        <FontAwesomeIcon
-          icon={faBars}
-          onClick={() => toggleSideBar()}
-        />
+        <div className="flex justify-between items-center py-3 border-b border-slate-200 w-full px-3">
+          <div>
 
+            <h3 className="font-semibold">SmartUp</h3>
+          </div>
+          <button onClick={() => sideBar.toggleSideBar()}>
+            <FontAwesomeIcon icon={faBars} />
+          </button>
+        </div>
         <Profile />
         <Explore />
         <Community />

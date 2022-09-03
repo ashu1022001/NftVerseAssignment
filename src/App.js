@@ -1,47 +1,38 @@
 import "./App.css";
-import ArticleCard from "./atoms/article-card/ArticleCard";
-import React, { useState, useEffect } from "react";
+
+import React, { useState } from "react";
 import Sidebar from "./template/sidebar/Sidebar";
 
-import { ToggleConetext,ToggleSideBarContext } from "./ShowSidebarContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-
+import { ToggleConetext, ToggleSideBarContext } from "./ShowSidebarContext";
+import { ROUTES } from "./routes";
+import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
-  const [articles, setArticles] = useState([]);
-
-  useEffect(() => {
-    fetch("https://api.facthunt.in/fostergem/v1/post/list/public")
-      .then((res) => res.json())
-      .then((res) => setArticles(res.content));
-  }, []);
   const [showSideBar, setShowSideBar] = useState(true);
 
-
   return (
-    
-    
     <div className="grid grid-cols-12 bg-slate-200">
-    <ToggleConetext.Provider value={showSideBar}>
-    <ToggleSideBarContext.Provider value ={()=>setShowSideBar(!setShowSideBar)}>
-      <div className="col-span-5 md:col-span-2">
-      
-        <Sidebar />
-      </div>
-      <FontAwesomeIcon icon={faBars} onClick={()=> setShowSideBar(!showSideBar)}  />
-      <div className="flex flex-wrap col-span-7 md:col-span-10 grow shrink-0 gap-7 p-4 max-h-[100vh] overflow-y-auto">
-        {articles?.map((article) => {
-          return (
-            <ArticleCard
-              key={article.postId}
-              image={article.coverImageUrl}
-              article={article.title}
-            />
-          );
-        })}
-      </div>
-      </ToggleSideBarContext.Provider>
+      <ToggleConetext.Provider value={showSideBar}>
+        <ToggleSideBarContext.Provider
+          value={() => setShowSideBar(!showSideBar)}
+        >
+          {showSideBar && (
+            <div className={`col-span-5 fixed top-0 left-0 md:static md:col-span-2 z-10`}>
+              <Sidebar />
+            </div>
+          )}
+          <div
+            className={` flex flex-col ${
+              showSideBar ? "col-span-12 md:col-span-10" : "col-span-12"
+            }  grow shrink-0 gap-3 max-h-[100vh] overflow-y-auto`}
+          >
+            <Routes>
+              {ROUTES.map((route) => {
+                return <Route key={route.path} path={route.path} element={<route.component />} />;
+              })}
+            </Routes>
+          </div>
+        </ToggleSideBarContext.Provider>
       </ToggleConetext.Provider>
     </div>
   );

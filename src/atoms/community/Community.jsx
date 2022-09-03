@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {  communities } from "../../data/side-menu";
 
 function Community() {
@@ -9,15 +10,15 @@ function Community() {
     <div className="flex flex-col gap-4 pb-5 border-b p-1 self-stretch px-6 border-slate-200">
 
         {
-            communities.map(cumminity=>{
+            communities.map(community=>{
                 return(
-                    <button className=" btn flex items-center gap-5" key={cumminity.name}>
+                    <Link state={{ title: community?.name }} to={community?.link} className=" btn flex items-center gap-5" key={community.name}>
                     <img
                       className="rounded-full w-8 h-8 overflow-hidden object-cover "
-                      src={`${cumminity.image}.jpg`}
+                      src={`${community.image}.jpg`}
                     />
-                    <span className=" text-slate-900 text-xs">{cumminity.name}</span>
-                  </button>
+                    <span className=" text-slate-900 text-xs">{community.name}</span>
+                  </Link>
                 )
             })
         }

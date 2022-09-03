@@ -2,6 +2,7 @@ import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
+
 function Profile() {
   return (
     <div className="flex gap-7 items-center self-stretch px-6 border-b p-1  border-slate-200 ">
@@ -16,6 +17,7 @@ function Profile() {
       <span className="rounded-full w-7 h-7 flex items-center justify-center bg-orange">
         <FontAwesomeIcon icon={faBell} />
       </span>
+
     </div>
   );
 }
